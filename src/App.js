@@ -1,24 +1,19 @@
-import logo from './logo.svg';
+import React from 'react';
 import './App.css';
+import InitialPage from "./InitialPage/InitialPage"
+import { createRenderer } from 'fela'
+import { RendererProvider, ThemeProvider } from 'react-fela'
+ import {theme} from './theme'
 
 function App() {
+  const renderer = createRenderer()
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <RendererProvider renderer={renderer}>
+      <ThemeProvider theme={theme}>
+        <InitialPage/>
+      </ThemeProvider>
+    </RendererProvider>
+
   );
 }
 
