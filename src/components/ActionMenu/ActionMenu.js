@@ -3,8 +3,7 @@ import { useFela } from "react-fela";
 import PropTypes from "prop-types";
 import { menuContainerStyle, listStyle, separator } from "./ActionMenuStyles";
 import ListItem from "../ListItem/ListItem";
-import {LIST_TYPES} from "../../constants/menuConstants"
-
+import { LIST_TYPES } from "../../constants/menuConstants";
 
 const ActionMenu = forwardRef(({ menuItems }, ref) => {
   const { css } = useFela();

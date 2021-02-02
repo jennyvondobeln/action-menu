@@ -6,6 +6,7 @@ export const InitialPageStyles = {
   minHeight: "100vh",
   display: "flex",
   justifyContent: "center",
+  flexDirection: "column",
   alignItems: "center",
   fontSize: "calc(10px + 2vmin)",
 };

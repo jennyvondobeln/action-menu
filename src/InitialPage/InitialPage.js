@@ -1,56 +1,49 @@
-import React, { useState, createRef } from "react";
-import ActionMenu from "../components/ActionMenu/ActionMenu";
+import React from "react";
 import { useFela } from "react-fela";
-import { actionMenuMock1 } from "../mockfiles/mocks";
-import { gradientButtonOne } from "../components/ButtonBase/ButtonBaseStyles";
-import useOutsideClick from "../helpers/useOutsideClickHook";
+import {
+  actionMenuMock1,
+  actionMenuMock2,
+  actionMenuMock3,
+} from "../mockfiles/mocks";
+import ActionMenuWrapper from "../components/ActionMenuWrapper/ActionMenuWrapper";
 import { InitialPageStyles } from "./InitialPageStyles";
-import ButtonBase from "../components/ButtonBase/ButtonBase";
-import { usePopperTooltip } from "react-popper-tooltip";
-import "react-popper-tooltip/dist/styles.css";
+import {
+  gradientButtonRed,
+  gradientButtonGreen,
+  gradientButtonBlue,
+} from "../components/ButtonBase/ButtonBaseStyles";
 
 const InitialPage = () => {
   const { css } = useFela();
-  const [isOpen, setIsOpen] = useState(false);
 
-  const ref = createRef();
-
-  const {
-    getArrowProps,
-    getTooltipProps,
-    setTooltipRef,
-    setTriggerRef,
-  } = usePopperTooltip();
-
-  useOutsideClick(ref, () => {
-    if (isOpen) setIsOpen(false);
-  });
-
-  const showMenufunc = () => {
-    //e.preventDefault(); behövs detta?
-    setIsOpen(!isOpen);
-  };
+  const variations = [
+    {
+      mock: actionMenuMock1,
+      buttonType: gradientButtonRed,
+      position: "left",
+    },
+    {
+      mock: actionMenuMock2,
+      buttonType: gradientButtonGreen,
+      position: "right",
+    },
+    {
+      mock: actionMenuMock3,
+      buttonType: gradientButtonBlue,
+      position: "top",
+    },
+  ];
 
   return (
     <div className={css(InitialPageStyles)}>
-      <ButtonBase
-        ref={setTriggerRef}
-        customStyle={gradientButtonOne}
-        onClick={showMenufunc}
-        aria-label={isOpen ? "Close" : "Open"}
-      >
-        {isOpen ? "Close menu" : "Show menu"}
-      </ButtonBase>
-
-      {isOpen && (
-        <span
-          ref={setTooltipRef}
-          {...getTooltipProps({ className: "tooltip-container" })}
-        >
-          <ActionMenu ref={ref} menuItems={actionMenuMock1} />
-          <div {...getArrowProps({ className: "tooltip-arrow" })} />
-        </span>
-      )}
+      {variations.map((item, i) => (
+        <ActionMenuWrapper
+          key={i}
+          menuItems={item.mock}
+          buttonColor={item.buttonType}
+          menuPosition={item.position}
+        />
+      ))}
     </div>
   );
 };

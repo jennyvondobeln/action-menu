@@ -1,5 +1,4 @@
 import React from 'react';
-import './App.css';
 import InitialPage from "./InitialPage/InitialPage"
 import { createRenderer } from 'fela'
 import { RendererProvider, ThemeProvider } from 'react-fela'

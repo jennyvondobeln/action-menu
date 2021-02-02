@@ -1,5 +1,3 @@
-import { theme } from "../../theme";
-
 export const linkBaseStyles = {
-    textDecoration: "none",
-  };
+  textDecoration: "none",
+};

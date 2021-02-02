@@ -25,23 +25,23 @@ export const actionMenuMock1 = [
 
 export const actionMenuMock2 = [
   {
-    summary: "Share",
+    summary: "Present",
     description:
-      "Levereras till ditt Åhlénsvaruhus inom 4-6 vardagar beroende på val av varuhus.",
+      "Lorem ipsum dolor sit amet, consecteur adipiscing elit.",
       link: "#",
       type: "link",
   },
   {
-    summary: "Edit",
+    summary: "Open Mentimote",
     description:
-      "Levereras till ditt Åhlénsvaruhus inom 4-6 vardagar beroende på val av varuhus.",
+      "Curabitur at vehicula ipsum. Aliquam euismod eros at ipsum consectetur, maximus convallis magna dapibus.",
       link: "#",
       type: "link",
   },
   {
-    summary: "Delete",
+    summary: "Share with organization",
     description:
-      "Levereras till ditt Åhlénsvaruhus inom 4-6 vardagar beroende på val av varuhus.",
+      "Mauris velit elit, consectetur sit amet porttitor et, iaculis a nisl.",
       link: "#",
       type: "link",
   },
